@@ -1,7 +1,11 @@
-import {assertEquals, assertThrows, assert, assertFalse} from "jsr:@std/assert@1";
+import {
+    assert,
+    assertEquals,
+    assertFalse,
+    assertThrows,
+} from "jsr:@std/assert@1";
 import fc from "npm:fast-check";
-import {range} from "@alg/range";
-
+import { range } from "@alg/range";
 
 Deno.test({
     name: "Ranges can be empty",
@@ -46,17 +50,16 @@ Deno.test({
     },
 });
 
-
 Deno.test({
     name: `Ranges can be contiguous`,
     fn: () => {
         const contiguousRangeCases = [
-            {range: range(1), expected: [0]},
-            {range: range(1, 3), expected: [1, 2]},
-            {range: range(4), expected: [0, 1, 2, 3]},
-            {range: range(1, 5), expected: [1, 2, 3, 4]},
-            {range: range(5, 1, -1), expected: [5, 4, 3, 2]},
-            {range: range(-1, -5, -1), expected: [-1, -2, -3, -4]},
+            { range: range(1), expected: [0] },
+            { range: range(1, 3), expected: [1, 2] },
+            { range: range(4), expected: [0, 1, 2, 3] },
+            { range: range(1, 5), expected: [1, 2, 3, 4] },
+            { range: range(5, 1, -1), expected: [5, 4, 3, 2] },
+            { range: range(-1, -5, -1), expected: [-1, -2, -3, -4] },
         ];
         for (const test of contiguousRangeCases) {
             assertEquals([...test.range], test.expected);
@@ -65,22 +68,21 @@ Deno.test({
     },
 });
 
-
 Deno.test({
     name: `Ranges can have gaps`,
     fn: () => {
         const gapRangeCases = [
-            {range: range(0, 4, 2), expected: [0, 2]},
-            {range: range(0, 5, 2), expected: [0, 2, 4]},
-            {range: range(1, 7, 3), expected: [1, 4]},
-            {range: range(1, 8, 3), expected: [1, 4, 7]},
-            {range: range(1, 9, 3), expected: [1, 4, 7]},
-            {range: range(0, -4, -2), expected: [0, -2]},
-            {range: range(0, -5, -2), expected: [0, -2, -4]},
-            {range: range(0, -6, -2), expected: [0, -2, -4]},
-            {range: range(1, -7, -3), expected: [1, -2, -5]},
-            {range: range(1, -8, -3), expected: [1, -2, -5]},
-            {range: range(1, -9, -3), expected: [1, -2, -5, -8]},
+            { range: range(0, 4, 2), expected: [0, 2] },
+            { range: range(0, 5, 2), expected: [0, 2, 4] },
+            { range: range(1, 7, 3), expected: [1, 4] },
+            { range: range(1, 8, 3), expected: [1, 4, 7] },
+            { range: range(1, 9, 3), expected: [1, 4, 7] },
+            { range: range(0, -4, -2), expected: [0, -2] },
+            { range: range(0, -5, -2), expected: [0, -2, -4] },
+            { range: range(0, -6, -2), expected: [0, -2, -4] },
+            { range: range(1, -7, -3), expected: [1, -2, -5] },
+            { range: range(1, -8, -3), expected: [1, -2, -5] },
+            { range: range(1, -9, -3), expected: [1, -2, -5, -8] },
         ];
         for (const test of gapRangeCases) {
             assertEquals([...test.range], test.expected);
@@ -93,9 +95,9 @@ Deno.test({
     name: `Ranges have lengths`,
     fn: () => {
         fc.assert(fc.property(
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: 1, max: 5}),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: 1, max: 5 }),
             (start, stop, step) => {
                 [start, stop] = [Math.min(start, stop), Math.max(start, stop)];
                 fc.pre(step < stop - start);
@@ -112,9 +114,9 @@ Deno.test({
     name: "Ranges can be reversed",
     fn: () => {
         fc.assert(fc.property(
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: 1, max: 5}),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: 1, max: 5 }),
             (start, stop, step) => {
                 [start, stop] = [Math.min(start, stop), Math.max(start, stop)];
                 fc.pre(step < stop - start);
@@ -133,9 +135,9 @@ Deno.test({
     name: "Ranges can be indexed",
     fn: () => {
         fc.assert(fc.property(
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: 1, max: 5}),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: 1, max: 5 }),
             fc.integer(),
             (start, stop, step, i) => {
                 [start, stop] = [Math.min(start, stop), Math.max(start, stop)];
@@ -158,11 +160,11 @@ Deno.test({
     name: "Ranges can be sliced",
     fn: () => {
         fc.assert(fc.property(
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: 1, max: 5}),
-            fc.integer({min: -50, max: 50}),
-            fc.integer({min: -50, max: 50}),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: 1, max: 5 }),
+            fc.integer({ min: -50, max: 50 }),
+            fc.integer({ min: -50, max: 50 }),
             (start, stop, step, i, j) => {
                 [start, stop] = [Math.min(start, stop), Math.max(start, stop)];
                 fc.pre(step < stop - start);
@@ -183,16 +185,15 @@ Deno.test({
     },
 });
 
-
 Deno.test({
     name: "Ranges are hashable",
     fn: () => {
         fc.assert(fc.property(
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: -100, max: 100}),
-            fc.integer({min: 5, max: 10}),
-            fc.integer({min: -50, max: 50}),
-            fc.integer({min: -50, max: 50}),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: -100, max: 100 }),
+            fc.integer({ min: 5, max: 10 }),
+            fc.integer({ min: -50, max: 50 }),
+            fc.integer({ min: -50, max: 50 }),
             (start, stop, step) => {
                 [start, stop] = [Math.min(start, stop), Math.max(start, stop)];
                 const r1 = range(start, stop, step);
