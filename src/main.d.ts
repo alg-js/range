@@ -2,7 +2,7 @@
  * Every day I pray for <https://tc39.es/proposal-type-annotations/>
  */
 
-export interface Hashable<T> {
+interface Hashable<T> {
     hash(): number;
     equals(other: T): boolean;
 }
@@ -49,6 +49,13 @@ export class Range implements Hashable<Range>, ArrayLike<number | undefined> {
     readonly length: number;
 
     /**
+     * Retrieves the element at the given index of this range.
+     * @param {number} index
+     * @returns {number|undefined}
+     */
+    readonly [index: number]: number | undefined;
+
+    /**
      * Creates a range with the given stop value
      *
      * @param {number} stop the stop value
@@ -78,13 +85,6 @@ export class Range implements Hashable<Range>, ArrayLike<number | undefined> {
      * @returns {number|undefined}
      */
     at(index: number): number | undefined;
-
-    /**
-     * Retrieves the element at the given index of this range.
-     * @param {number} index
-     * @returns {number|undefined}
-     */
-    [index: number]: number | undefined;
 
     /**
      * Returns a new range from slicing values in this range

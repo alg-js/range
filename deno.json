@@ -1,6 +1,6 @@
 {
   "name": "@alg/range",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "exports": "./src/main.js",
   "lock": false,
