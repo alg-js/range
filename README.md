@@ -16,8 +16,8 @@ deno add jsr:@alg/range
 
 ## Example
 
-The range class has a _range_ (**Ha!**) of methods. See
-the [API docs](https://jsr.io/@alg/range/doc/~/Range) for more.
+Range implements most non-mutating array methods.
+See the [API docs](https://jsr.io/@alg/range/doc/~/Range) for more.
 
 ```javascript
 import {range} from "@alg/range";
@@ -28,6 +28,7 @@ console.log(r.at(-2)); // 3
 console.log(r[3]); // 3
 console.log([...r.toReversed()]); // [4, 3, 2, 1, 0]
 console.log([...r.slice(1, -1)]); // [1, 2, 3]
+console.log([...r.reduce((a, e) => a + 3)]); // 10
 
 console.log([...range(1, 5)]); // [1, 2, 3, 4]
 console.log([...range(1, 5, 2)]); // [1, 3]

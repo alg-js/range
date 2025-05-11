@@ -45,7 +45,7 @@ export function range(start: number, stop: number, step: number): Range;
 /**
  * A range object. Most operations operate in constant time and space.
  */
-export class Range implements Hashable<Range>, ArrayLike<number | undefined> {
+export class Range implements Hashable, ArrayLike<number | undefined> {
   /** The start value of the range */
   readonly start: number;
   /** The stop value of the range */
@@ -794,7 +794,7 @@ export class Range implements Hashable<Range>, ArrayLike<number | undefined> {
    *
    * @returns {boolean}
    */
-  equals(other: Range): boolean;
+  equals(other: unknown): boolean;
 
   /**
    * Returns a hash value for the range

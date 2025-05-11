@@ -3,9 +3,9 @@ import type { Range } from "./main.js";
 /**
  * An interface for hashable objects
  */
-export interface Hashable<T> {
+export interface Hashable {
   hash(): number;
-  equals(other: T): boolean;
+  equals(other: unknown): boolean;
 }
 
 /** A comparator function */
