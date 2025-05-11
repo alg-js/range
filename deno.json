@@ -1,17 +1,9 @@
 {
   "name": "@alg/range",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "exports": "./src/main.js",
   "lock": false,
-  "fmt": {
-    "lineWidth": 80,
-    "indentWidth": 4,
-    "include": [
-      "src/",
-      "tests/"
-    ]
-  },
   "publish": {
     "include": [
       "LICENSE",
