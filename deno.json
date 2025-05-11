@@ -1,8 +1,11 @@
 {
   "name": "@alg/range",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
-  "exports": "./src/main.js",
+  "exports": {
+    ".": "./src/main.js",
+    "./types": "./src/types.d.ts"
+  },
   "lock": false,
   "publish": {
     "include": [
