@@ -28,7 +28,7 @@ console.log(r.at(-2)); // 3
 console.log(r[3]); // 3
 console.log([...r.toReversed()]); // [4, 3, 2, 1, 0]
 console.log([...r.slice(1, -1)]); // [1, 2, 3]
-console.log([...r.reduce((a, e) => a + 3)]); // 10
+console.log([...r.reduce((a, e) => a + e)]); // 10
 
 console.log([...range(1, 5)]); // [1, 2, 3, 4]
 console.log([...range(1, 5, 2)]); // [1, 3]
