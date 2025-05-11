@@ -16,7 +16,7 @@ deno add jsr:@alg/range
 
 ## Example
 
-The range class has a _range_ of methods[^1]. See
+The range class has a _range_ (**Ha!**) of methods. See
 the [API docs](https://jsr.io/@alg/range/doc/~/Range) for more.
 
 ```javascript
@@ -33,5 +33,3 @@ console.log([...range(1, 5)]); // [1, 2, 3, 4]
 console.log([...range(1, 5, 2)]); // [1, 3]
 console.log([...range(5, 1, -2)]); // [5, 3]
 ```
-
-[^1]: **Ha!**
